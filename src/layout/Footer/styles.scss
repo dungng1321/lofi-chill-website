@@ -1,0 +1,35 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  height: 15%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26px;
+  // margin-bottom: 16px;
+  width:50%;
+
+  @media(max-width: 1024px) {
+    width: 100%;
+    
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+
+    span {
+      color: white;
+    }
+  }
+
+  .controller {
+    display: flex;
+    align-items: center;
+   
+  
+  }
+}

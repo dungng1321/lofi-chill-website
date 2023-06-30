@@ -1,0 +1,23 @@
+.separatorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  margin: 0 0 10px 0px;
+}
+
+.separator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #404549;
+  border-radius: 6px;
+  margin: 5px 0px;
+}
+
+.timerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+}

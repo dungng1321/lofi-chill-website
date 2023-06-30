@@ -1,0 +1,58 @@
+$blue: #91ccc2;
+
+.wrapper {
+  position: absolute;
+  z-index: 10;
+  right: 12px;
+  top: -200px;
+  width: 250px;
+  height: 100px;
+  margin: 20% auto;
+  color: white;
+  font-size: 1rem;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+   top: 0;
+  }
+
+  .button {
+    font-size: 1.5rem;
+    border: 2px solid white;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    // padding: 5px;
+    margin: 5px auto;
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .icon {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+
+  //Hover
+  //-----------------------
+  .button:hover {
+    width: 125px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+    color: $blue;
+    transition: 0.3s;
+    border: none;
+  }
+
+  .button:active {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.05s;
+  }
+}
+

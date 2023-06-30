@@ -1,0 +1,49 @@
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* // Disable Text Selection */
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+:root,
+body,
+html {
+  background-color: black;
+  box-sizing: border-box;
+}
+
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+i,
+img,
+label,
+li,
+nav,
+p,
+small,
+span,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  /* text-decoration: none; */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
