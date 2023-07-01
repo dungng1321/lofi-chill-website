@@ -50,13 +50,14 @@ const ModifierBoard = ({
   const [rainForest, setRainForest] = useState(0);
 
   const rainSliderHandler = (e) => {
-    // if slide then make it rain
-    if (e.target.value > 0) dispatch(changeRainStatus("clear", cityRain));
-    // if value = 0 then stop rain
-    else if (e.target.value === 0) dispatch(changeRainStatus("rain", 0));
-    setCityRain(e.target.value);
+    const { value } = e.target;
+    if (value > 0) {
+      dispatch(changeRainStatus({ currentStatus: "clear", value: cityRain }));
+    } else if (value === 0) {
+      dispatch(changeRainStatus({ currentStatus: "rain", value: 0 }));
+    }
+    setCityRain(value);
   };
-
   const openFocusHandler = () => {
     setOpenFocus(!openFocus);
     setOpenMood(false);

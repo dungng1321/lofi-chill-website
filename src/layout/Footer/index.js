@@ -4,6 +4,7 @@ import { chill, jazzy, sleep } from '../../data/songData';
 import { useSelector } from 'react-redux';
 import './styles.scss';
 import Player from '../../components/Player'
+import { CONSTANTS } from '../../constants/constants';
 
 const Footer = () => {
   const data = useSelector((state) => state.mood);
@@ -14,8 +15,7 @@ const Footer = () => {
 
   return (
     <div className='footer'>
-      <div className='author'>
-        {/* <span>Made by Phuc Le, inspired by Lofi.co</span> */}
+      <div className='song-name'>
         {moodMode === 'chill' ? (
           <span>Song name: {chill[currentSongIndex].name}</span>
         ) : moodMode === 'jazzy' ? (
@@ -44,6 +44,17 @@ const Footer = () => {
             songs={sleep}
           />
         )}
+      </div>
+      <div className='author'>
+        Made by:
+        <a
+          href={CONSTANTS.AUTHOR_GITHUB_LINK}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='author-name'
+        >
+         {CONSTANTS.AUTHOR}
+        </a>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import {changeDayNight} from '../../store/slice/modeSlice';
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import DarkLightSwitch from "../../components/DarkLightSwitch";
+import { CONSTANTS } from '../../constants/constants';
 
 
 const Header = () => {
@@ -48,7 +48,7 @@ const Header = () => {
       <a
           target='_blank'
           rel='noreferrer'
-          href='https://github.com/dungng1321/Lofi-chill-website'
+          href={CONSTANTS.AUTHOR_GITHUB_LINK}
         >
           <i className='fab fa-github'></i>
           <span>GitHub</span>

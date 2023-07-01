@@ -9,27 +9,44 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 26px;
-  // margin-bottom: 16px;
-  width:50%;
+  width: 100%;
 
-  @media(max-width: 1024px) {
+  @media (max-width: 1024px) {
     width: 100%;
-    
   }
-
-  .author {
+  .song-name {
     display: flex;
     align-items: center;
 
     span {
       color: white;
+
     }
   }
-
   .controller {
     display: flex;
     align-items: center;
-   
-  
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 13px;
+    font-style: italic;
+    
+    .author-name {
+      margin-left: 5px;
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+      }
+    }
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 }
