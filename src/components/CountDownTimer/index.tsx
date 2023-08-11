@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import './styles.scss';
-import TimerStyled from '../TimerStyled';
+import  { useState } from "react";
+import "./styles.scss";
+import TimerStyled from "../TimerStyled";
+import { IModifierBoardProps } from '../../types/interface';
+
 
 const CountDownTimer = ({
   seconds,
@@ -12,10 +14,10 @@ const CountDownTimer = ({
   setTimerHandler,
   setTimerStart,
   timerStart,
-}) => {
-  const [hour, setHour] = useState(0);
-  const [minute, setMinute] = useState(0);
-  const [second, setSecond] = useState(0);
+}: IModifierBoardProps) => {
+  const [hour, setHour] = useState<number>(0);
+  const [minute, setMinute] = useState<number>(0);
+  const [second, setSecond] = useState<number>(0);
 
   const setTimerBtnHandler = () => {
     setTimerHandler(hour, minute, second);
@@ -54,7 +56,7 @@ const CountDownTimer = ({
               className='number-input'
               type='number'
               value={hour}
-              onChange={(e) => setHour(e.target.value)}
+              onChange={(e) => setHour(+e.target.value)}
               max={24}
               min={0}
             />
@@ -63,7 +65,7 @@ const CountDownTimer = ({
               className='number-input'
               type='number'
               value={minute}
-              onChange={(e) => setMinute(e.target.value)}
+              onChange={(e) => setMinute(+e.target.value)}
               max={60}
               min={0}
             />
@@ -72,7 +74,7 @@ const CountDownTimer = ({
               className='number-input'
               type='number'
               value={second}
-              onChange={(e) => setSecond(e.target.value)}
+              onChange={(e) => setSecond(+e.target.value)}
               max={60}
               min={0}
             />

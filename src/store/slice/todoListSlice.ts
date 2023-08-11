@@ -1,14 +1,22 @@
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const listItems = localStorage.getItem("listItems")
+
+export interface ITodoListState {
+  todoList: {
+    name: string;
+    complete: boolean;
+  }[];
+  repeat: boolean;
+}
+
 
 const todoListSlice = createSlice({
   name: "todoList",
   initialState: {
     todoList: listItems ? JSON.parse(listItems) : [],
     repeat: false,
-  },
+  } as ITodoListState,
   reducers: {
     listAdd: (state, action) => {
       const newList = action.payload;

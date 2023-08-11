@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import{ useState } from "react";
 
 import "./Home.scss";
-import { useSelector } from "react-redux";
 import ModifierBoard from "../ModifierBoard";
 import RainToggleButton from "../RainToggleButton";
 
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../layout/Footer";
 import { useTimer } from "react-timer-hook";
+import { RootState, useAppSelector } from '../../store/store';
 
 const Home = () => {
   const [timerStart, setTimerStart] = useState(false);
 
-  const daynight = useSelector((state) => state.mode);
-  const rain = useSelector((state) => state.rain);
+  const daynight = useAppSelector((state:RootState) => state.mode);
+  const rain = useAppSelector((state:RootState) => state.rain);
 
   const { mode } = daynight;
   const { rainMode } = rain;
@@ -28,7 +28,7 @@ const Home = () => {
       onExpire: () => setTimerStart(false),
     });
 
-  const setTimerHandler = (hour, minute, second) => {
+  const setTimerHandler = (hour:number, minute: number, second: number) => {
     const time = new Date();
     const setupTimer =
       Number(hour) * 3600 + Number(second) + Number(minute) * 60;

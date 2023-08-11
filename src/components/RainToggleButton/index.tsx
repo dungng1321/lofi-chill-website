@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import{ useState } from "react";
 import { changeRainStatus } from "../../store/slice/rainSlice";
 import ReactAudioPlayer from "react-audio-player";
 
 import "./styles.scss";
+import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
 
 const RainToggleButton = () => {
-  const dispatch = useDispatch();
-  const rain = useSelector((state) => state.rain);
+  const dispatch = useAppDispatch();
+  const rain = useAppSelector((state: RootState) => state.rain);
   const { rainMode, rainValue } = rain;
 
   const [buttonClick, setButtonClick] = useState(false);

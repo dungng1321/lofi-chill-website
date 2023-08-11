@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useAppSelector, useAppDispatch } from "../../store/store";
 
 import "./styles.scss";
 import Stack from "@mui/material/Stack";
@@ -11,6 +11,8 @@ import { changeRainStatus } from "../../store/slice/rainSlice";
 import { changeVolume } from "../../store/slice/changeVolumeSlice";
 import CountDownTimer from "../CountDownTimer";
 import TodoList from "../TodoList";
+import { IModifierBoardProps } from "../../types/interface";
+import { RootState } from "../../store/store";
 
 const ModifierBoard = ({
   seconds,
@@ -23,33 +25,33 @@ const ModifierBoard = ({
   setTimerHandler,
   setTimerStart,
   timerStart,
-}) => {
-  const dispatch = useDispatch();
-  const moodData = useSelector((state) => state.mood);
-  const rainData = useSelector((state) => state.rain);
-  const volumeData = useSelector((state) => state.volume);
+}: IModifierBoardProps) => {
+  const dispatch = useAppDispatch();
+  const moodData = useAppSelector((state: RootState) => state.mood);
+  const rainData = useAppSelector((state: RootState) => state.rain);
+  const volumeData = useAppSelector((state: RootState) => state.volume);
 
   const { rainValue } = rainData;
-  const { moodMode } = moodData
+  const { moodMode } = moodData;
   const { volumeValue } = volumeData;
 
-  const [openMood, setOpenMood] = useState(false);
-  const [openFocus, setOpenFocus] = useState(false);
+  const [openMood, setOpenMood] = useState<boolean>(false);
+  const [openFocus, setOpenFocus] = useState<boolean>(false);
 
-  const [cityTraffic, setCityTraffic] = useState(0);
-  const [cityRain, setCityRain] = useState(rainValue);
-  const [fireplace, setFireplace] = useState(0);
-  const [snow, setSnow] = useState(0);
-  const [summerStorm, setSummerStorm] = useState(0);
-  const [fan, setFan] = useState(0);
-  const [forestNight, setForestNight] = useState(0);
-  const [wave, setWave] = useState(0);
-  const [wind, setWind] = useState(0);
-  const [people, setPeople] = useState(0);
-  const [river, setRiver] = useState(0);
-  const [rainForest, setRainForest] = useState(0);
+  const [cityTraffic, setCityTraffic] = useState<number>(0);
+  const [cityRain, setCityRain] = useState<number>(0);
+  const [fireplace, setFireplace] = useState<number>(0);
+  const [snow, setSnow] = useState<number>(0);
+  const [summerStorm, setSummerStorm] = useState<number>(0);
+  const [fan, setFan] = useState<number>(0);
+  const [forestNight, setForestNight] = useState<number>(0);
+  const [wave, setWave] = useState<number>(0);
+  const [wind, setWind] = useState<number>(0);
+  const [people, setPeople] = useState<number>(0);
+  const [river, setRiver] = useState<number>(0);
+  const [rainForest, setRainForest] = useState<number>(0);
 
-  const rainSliderHandler = (e) => {
+  const rainSliderHandler = (e: any) => {
     const { value } = e.target;
     if (value > 0) {
       dispatch(changeRainStatus({ currentStatus: "clear", value: cityRain }));
@@ -68,11 +70,11 @@ const ModifierBoard = ({
     setOpenFocus(false);
   };
 
-  const changeMoodHandler = (e) => {
+  const changeMoodHandler = (e: any) => {
     dispatch(changeMoodStatus(e.target.id));
   };
 
-  const changeVolumeHandler = (e) => {
+  const changeVolumeHandler = (e: any) => {
     dispatch(changeVolume(e.target.value));
   };
 
@@ -173,7 +175,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={cityTraffic}
-                    onChange={(e) => setCityTraffic(e.target.value)}
+                    onChange={(e: any) => setCityTraffic(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -203,7 +205,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={fireplace}
-                    onChange={(e) => setFireplace(e.target.value)}
+                    onChange={(e: any) => setFireplace(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -218,7 +220,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={snow}
-                    onChange={(e) => setSnow(e.target.value)}
+                    onChange={(e: any) => setSnow(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -233,7 +235,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={summerStorm}
-                    onChange={(e) => setSummerStorm(e.target.value)}
+                    onChange={(e: any) => setSummerStorm(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -248,7 +250,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={fan}
-                    onChange={(e) => setFan(e.target.value)}
+                    onChange={(e: any) => setFan(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -263,7 +265,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={forestNight}
-                    onChange={(e) => setForestNight(e.target.value)}
+                    onChange={(e: any) => setForestNight(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -278,7 +280,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={wave}
-                    onChange={(e) => setWave(e.target.value)}
+                    onChange={(e: any) => setWave(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -293,7 +295,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={wind}
-                    onChange={(e) => setWind(e.target.value)}
+                    onChange={(e: any) => setWind(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -308,7 +310,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={people}
-                    onChange={(e) => setPeople(e.target.value)}
+                    onChange={(e: any) => setPeople(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -323,7 +325,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={river}
-                    onChange={(e) => setRiver(e.target.value)}
+                    onChange={(e: any) => setRiver(e.target.value)}
                   />
                 </div>
                 <div className='noise-option'>
@@ -338,7 +340,7 @@ const ModifierBoard = ({
                   <Slider
                     className='slider'
                     value={rainForest}
-                    onChange={(e) => setRainForest(e.target.value)}
+                    onChange={(e: any) => setRainForest(e.target.value)}
                   />
                 </div>
               </div>

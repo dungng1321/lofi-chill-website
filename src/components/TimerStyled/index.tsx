@@ -1,8 +1,13 @@
-import React from 'react';
 import './styles.scss';
 import Digit from '../Digit';
 
-const TimerStyled = ({ seconds, minutes, hours }) => {
+export interface ITimerStyledProps {
+  seconds: number;
+  minutes: number;
+  hours: number;
+}
+
+const TimerStyled = ({ seconds, minutes, hours }: ITimerStyledProps) => {
   return (
     <div className='timerContainer'>
       <Digit value={hours} title='HOURS' addSeparator />
