@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Button, ListGroup } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import {
   listAdd,
   listToggleComplete,
@@ -8,25 +7,26 @@ import {
 } from "../../store/slice/todoListSlice";
 import Message from "../Message";
 import "./styles.scss";
+import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
 
 const TodoList = () => {
-  const dispatch = useDispatch();
-  const [list, setList] = useState("");
+  const dispatch = useAppDispatch();
+  const [list, setList] = useState<string>("");
 
-  const data = useSelector((state) => state.todoList);
+  const data = useAppSelector((state: RootState) => state.todoList);
   const { todoList, repeat } = data;
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: any) => {
     e.preventDefault();
     dispatch(listAdd({ name: list, complete: false }));
     setList("");
   };
 
-  const handleDelete = (item) => {
+  const handleDelete = (item: any) => {
     dispatch(listRemove(item));
   };
 
-  const handleToggleComplete = (item) => {
+  const handleToggleComplete = (item: any) => {
     dispatch(listToggleComplete(item));
   };
 
@@ -56,7 +56,7 @@ const TodoList = () => {
             <Message variant='danger'>This note is already added</Message>
           )}
           <ListGroup className='todolistList'>
-            {todoList.map((listItem) => (
+            {todoList.map((listItem: any) => (
               <ListGroup.Item
                 variant={listItem.complete ? "success" : "primary"}
                 key={listItem.name}

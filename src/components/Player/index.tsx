@@ -1,14 +1,23 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
+import "./styles.scss";
+import { RootState, useAppSelector } from "../../store/store";
 
-import { useSelector } from 'react-redux';
-import './styles.scss';
+export interface IPlayerProps {
+  currentSongIndex: number;
+  setCurrentSongIndex: any;
+  songs: any;
+}
 
-const Player = ({ currentSongIndex, setCurrentSongIndex, songs }) => {
-  const data = useSelector((state) => state.volume);
+const Player = ({
+  currentSongIndex,
+  setCurrentSongIndex,
+  songs,
+}: IPlayerProps) => {
+  const data = useAppSelector((state: RootState) => state.volume);
 
   const { volumeValue } = data;
 
-  const audioElement = useRef();
+  const audioElement = useRef<any>();
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {

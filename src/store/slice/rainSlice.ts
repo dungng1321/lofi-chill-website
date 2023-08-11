@@ -1,11 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+
+export interface IRainState {
+  rainMode: string | undefined;
+  rainValue: number;
+}
 
 const rainSlice = createSlice({
-  name: 'rain',
+  name: "rain",
   initialState: {
-    rainMode: 'clear',
+    rainMode: "clear",
     rainValue: 0,
-  },
+  } as IRainState,
+
   reducers: {
     setRain: (state, action) => {
       state.rainMode = action.payload.rainMode;

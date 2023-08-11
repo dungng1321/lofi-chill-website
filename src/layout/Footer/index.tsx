@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import{ useState } from 'react';
 
 import { chill, jazzy, sleep } from '../../data/songData';
-import { useSelector } from 'react-redux';
 import './styles.scss';
 import Player from '../../components/Player'
 import { CONSTANTS } from '../../constants/constants';
+import { RootState, useAppSelector } from '../../store/store';
 
 const Footer = () => {
-  const data = useSelector((state) => state.mood);
+  const data = useAppSelector((state: RootState) => state.mood);
 
   const { moodMode } = data;
 
