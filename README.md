@@ -16,4 +16,5 @@ This project is a lofi music website built using React.js. It provides a soothin
 2. Navigate to the project directory
 3. Install the dependencies: `yarn install`
 4. Start the development server: `yarn start`
-5. Open your browser and visit
+5. Open your browser and visit123
+6. 
